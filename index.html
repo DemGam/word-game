@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<title>Word Game</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/wg-style.css">
+
+	<link rel="icon" href="https://julelykkehjulet.dk/assets/julelykkehjuletdk/fav48.png">
+	<link rel="shortcut icon" href="https://julelykkehjulet.dk/assets/julelykkehjuletdk/fav16.png">
+</head>
+
+<body>
+	<!-- <div id="wg-config" data-time-left="120" data-word="computer" data-clue-word="device"
+		data-success-text="Correct word!" data-forwardURL="https://google.com" data-letter-color="#3B6BB8"
+		data-letter-color-wrong="#801414" data-letter-color-correct="#42610F">
+	</div> -->
+
+	<div class="wrapper">
+		<header id="top-menu" class="header">
+			<div class="header__container">
+				<div class="header__body">
+					<div class="header__logo">
+						<a href="#" class="header__logo-link"><img src="img/header/logo.png" alt="Logo"></a>
+					</div>
+
+					<div class="header__money">
+						<a href="https://julelykkehjulet.dk/home" class="header__money-link _money-link">
+							<p class="header__points-number">110</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="home">
+			<section class="home__game game-home">
+				<div class="game-home__container">
+					<div class="game-home__body">
+						<div class="game-home__side-block">
+							<div class="game-home__statistic statistic-game-home">
+								<a href="#" class="statistic-game-home__account">
+									<span class="statistic-game-home__user-name statistic-game-home__pink">Jacobroser</span>
+								</a>
+								<div class="statistic-game-home__points">
+									<a href="#" class="statistic-game-home__points-link">
+										<span class="statistic-game-home__points-number statistic-game-home__pink">110</span>
+										<span class="statistic-game-home__text">lodder tjent</span>
+									</a>
+								</div>
+								<div class="statistic-game-home__games-played">
+									<span class="statistic-game-home__games-played-num statistic-game-home__pink">11</span>
+									<span class="statistic-game-home__text">løste puslespil</span>
+								</div>
+								<div class="statistic-game-home__text">
+									Hvert lod optjent<br> er en vinderchance
+								</div>
+							</div>
+						</div>
+
+
+						<div class="game-home__game-main-block main-game-home">
+							<div class="main-game-home__body">
+								<div class="main-game-home__header">
+									<a href="#" class="main-game-home__close _close-game">
+										<img src="img/header/close.svg" alt="Close button">
+									</a>
+									<div class="main-game-home__money">
+										<a href="#" class="main-game-home__money-link _money-link">
+											<p class="main-game-home__points-number">110</p>
+										</a>
+									</div>
+								</div>
+
+								<div class="main-game-home__game-wrapper wg-game__wrapper">
+									<!-- ==================================== -->
+
+									<div class="wg-game">
+										<div class="wg-game__timer wg-timer">
+											<div class="wg-timer__wrapper">
+												<div class="wg-timer__dial"></div>
+												<div class="wg-timer__text" id="timer"></div>
+											</div>
+										</div>
+										<div class="wg-game__body wg-body">
+											<div class="wg-body__category-wrapper">
+												<div class="wg-body__category">FOOD</div>
+											</div>
+
+
+											<div class="wg-body__word">
+												<div class="word-item">A</div>
+												<div class="word-item">A</div>
+												<div class="word-item">A</div>
+												<div class="word-item">A</div>
+												<div class="word-item">A</div>
+												<div class="word-item">A</div>
+											</div>
+
+
+											<div class="wg-body__alphabet">
+												<div class="letter-item success">Q</div>
+												<div class="letter-item">w</div>
+												<div class="letter-item">e</div>
+												<div class="letter-item">r</div>
+												<div class="letter-item">t</div>
+											</div>
+
+
+										</div>
+									</div>
+
+									<!-- ==================================== -->
+									<div class="main-game-home__final-message final-message-game">
+										<div class="final-message-game__body">
+											<p class="final-message-game__text"></p>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<a href="#"><img src="/img/header/logo.png" class="footer_logo"></a>
+				<div class="row">
+					<p class="bottom_footer_text">
+						© 2024 Julelykkehjulet.dk | HiT Media ApS - Kidholm 12 - 9310 Vodskov - Danmark | <a href="/help"
+							target="_blank">Hjælp / Kundeservice</a> | <a href="https://julelykkehjulet.dk/terms"
+							target="_blank">Betingelser</a> | <a href="https://julelykkehjulet.dk/privacy"
+							target="_blank">Privatlivspolitik</a>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+	<script>
+		let timeLeft = 120; // seconds to timeout
+		let word = "computer"; // Word for user to guess
+		let clueWord = "Technique"; // Word for user to tip
+		let letterColor = "#3B6BB8"; // Hex color
+		let letterColorWrong = "#801414"; // Hex color
+		let letterColorCorrect = "#42610F"; // Hex color
+
+		let successText = "Correct word!";
+		let failureText = "Try again later";
+		let sessionID = "12345"; // session identifier
+		let forwardURL = "https://google.com";
+	</script>
+	<script src="./js/wg-app.js"></script>
+</body>
+
+</html>
