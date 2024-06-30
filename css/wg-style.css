@@ -286,8 +286,10 @@
     font-size: 23px;
   }
 }
-.wg-body__alphabet .letter-item:hover {
-  box-shadow: rgba(255, 255, 255, 0.5) -2px -3px 15px 1px;
+@media (hover: hover) {
+  .wg-body__alphabet .letter-item:hover {
+    box-shadow: rgba(255, 255, 255, 0.5) -2px -3px 15px 1px;
+  }
 }
 .wg-body__alphabet .letter-item:active {
   transform: translateY(2px);
