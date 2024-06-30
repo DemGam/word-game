@@ -15,10 +15,6 @@
 </head>
 
 <body>
-	<!-- <div id="wg-config" data-time-left="120" data-word="computer" data-clue-word="device"
-		data-success-text="Correct word!" data-forwardURL="https://google.com" data-letter-color="#3B6BB8"
-		data-letter-color-wrong="#801414" data-letter-color-correct="#42610F">
-	</div> -->
 
 	<div class="wrapper">
 		<header id="top-menu" class="header">
@@ -69,6 +65,14 @@
 									<a href="#" class="main-game-home__close _close-game">
 										<img src="img/header/close.svg" alt="Close button">
 									</a>
+
+									<div class="wg-game__timer wg-timer">
+										<div class="wg-timer__wrapper">
+											<div class="wg-timer__dial"></div>
+											<div class="wg-timer__text" id="timer"></div>
+										</div>
+									</div>
+
 									<div class="main-game-home__money">
 										<a href="#" class="main-game-home__money-link _money-link">
 											<p class="main-game-home__points-number">110</p>
@@ -80,49 +84,32 @@
 									<!-- ==================================== -->
 
 									<div class="wg-game">
-										<div class="wg-game__timer wg-timer">
-											<div class="wg-timer__wrapper">
-												<div class="wg-timer__dial"></div>
-												<div class="wg-timer__text" id="timer"></div>
-											</div>
-										</div>
 										<div class="wg-game__body wg-body">
 											<div class="wg-body__category-wrapper">
-												<div class="wg-body__category">FOOD</div>
+												<div class="wg-body__category" id="clue-word"></div>
 											</div>
 
-
-											<div class="wg-body__word">
-												<div class="word-item">A</div>
-												<div class="word-item">A</div>
-												<div class="word-item">A</div>
-												<div class="word-item">A</div>
-												<div class="word-item">A</div>
-												<div class="word-item">A</div>
+											<div class="wg-body__word" id="wg-body__word">
 											</div>
 
-
-											<div class="wg-body__alphabet">
-												<div class="letter-item success">Q</div>
-												<div class="letter-item">w</div>
-												<div class="letter-item">e</div>
-												<div class="letter-item">r</div>
-												<div class="letter-item">t</div>
+											<div class="wg-body__alphabet" id="wg-alphabet">
 											</div>
-
 
 										</div>
 									</div>
 
 									<!-- ==================================== -->
-									<div class="main-game-home__final-message final-message-game">
-										<div class="final-message-game__body">
-											<p class="final-message-game__text"></p>
-										</div>
-									</div>
+
 								</div>
 
 							</div>
+
+							<div class="main-game-home__final-message final-message-game">
+								<div class="final-message-game__body">
+									<p class="final-message-game__text"></p>
+								</div>
+							</div>
+
 						</div>
 
 
@@ -133,7 +120,7 @@
 
 		<footer class="footer">
 			<div class="footer__container">
-				<a href="#"><img src="/img/header/logo.png" class="footer_logo"></a>
+				<a href="#"><img src="/img/header/logo.png" class="footer_logo" alt="logo"></a>
 				<div class="row">
 					<p class="bottom_footer_text">
 						© 2024 Julelykkehjulet.dk | HiT Media ApS - Kidholm 12 - 9310 Vodskov - Danmark | <a href="/help"
@@ -146,19 +133,25 @@
 		</footer>
 	</div>
 
+	<audio id="click-sound" src="/media/click.mp3" preload="auto"></audio>
+	<audio id="win-sound" src="/media/win.mp3" preload="auto"></audio>
+	<audio id="loose-sound" src="/media/loose.mp3" preload="auto"></audio>
 
 	<script>
-		let timeLeft = 120; // seconds to timeout
+		let startTime = 120; // seconds to timeout
 		let word = "computer"; // Word for user to guess
+		let alphabet = "qwertyuiopÅasdfghjklÆØzxcvbnm"
 		let clueWord = "Technique"; // Word for user to tip
+
 		let letterColor = "#3B6BB8"; // Hex color
 		let letterColorWrong = "#801414"; // Hex color
 		let letterColorCorrect = "#42610F"; // Hex color
 
 		let successText = "Correct word!";
 		let failureText = "Try again later";
+		let redirectionDelay = 2; // in seconds
 		let sessionID = "12345"; // session identifier
-		let forwardURL = "https://google.com";
+		let forwardURL = "https://google.com/"; // There must be "/" at the end
 	</script>
 	<script src="./js/wg-app.js"></script>
 </body>
