@@ -62,26 +62,18 @@
 						<div class="game-home__game-main-block main-game-home">
 							<div class="main-game-home__body">
 								<div class="main-game-home__header">
-									<a href="#" class="main-game-home__close _close-game">
-										<img src="img/header/close.svg" alt="Close button">
-									</a>
 
 									<div class="wg-game__timer wg-timer">
 										<div class="wg-timer__wrapper">
 											<div class="wg-timer__dial"></div>
-											<div class="wg-timer__text" id="timer"></div>
+											<div class="wg-timer__text" id="timer-count"></div>
 										</div>
 									</div>
 
-									<div class="main-game-home__money">
-										<a href="#" class="main-game-home__money-link _money-link">
-											<p class="main-game-home__points-number">110</p>
-										</a>
-									</div>
 								</div>
+								<!-- ==================================== -->
 
 								<div class="main-game-home__game-wrapper wg-game__wrapper">
-									<!-- ==================================== -->
 
 									<div class="wg-game">
 										<div class="wg-game__body wg-body">
@@ -133,14 +125,18 @@
 		</footer>
 	</div>
 
-	<audio id="click-sound" src="media/click.mp3" preload="auto"></audio>
+	<audio id="success-click-sound" src="media/success_click.mp3" preload="auto"></audio>
+	<audio id="fail-click-sound" src="media/fail_click.mp3" preload="auto"></audio>
 	<audio id="win-sound" src="media/win.mp3" preload="auto"></audio>
 	<audio id="loose-sound" src="media/loose.mp3" preload="auto"></audio>
 
 	<script>
 		let startTime = 120; // seconds to timeout
+		let failDeductTime = 20; // seconds to deduct per wrong letter
 		let word = "computer"; // Word for user to guess
-		let alphabet = "qwertyuiopÅasdfghjklÆØzxcvbnm"
+		let alphabet1 = "qwertyuiopå";
+		let alphabet2 = "asdfghjklæø";
+		let alphabet3 = "zxcvbnm";
 		let clueWord = "Technique"; // Word for user to tip
 
 		let letterColor = "#3B6BB8"; // Hex color
