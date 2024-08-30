@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Mali:300&display=swap");
 :root {
   --letter-color: #3b6bb8;
   --letter-color-wrong: #801414;
@@ -31,12 +32,22 @@
   margin-bottom: 30px;
   background-color: var(--bg-color);
 }
+@media (max-width: 768px) {
+  .main-game-home__body {
+    padding-inline: calc(6px + 4 * (100vw - 360px) / 408);
+  }
+}
 
 .main-game-home__header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 16px;
+}
+@media (max-width: 922px) {
+  .main-game-home__header {
+    margin-bottom: 0px;
+  }
 }
 
 .wg-game__wrapper {
@@ -46,39 +57,10 @@
   position: relative;
 }
 
-@media (min-width: 991.98px) {
-  .header__close {
-    display: none;
-  }
-  .main-game-home__header {
-    justify-content: center;
-  }
-  .main-game-home__close {
-    display: none;
-  }
-  .main-game-home__money {
-    display: none;
-  }
-}
-@media (max-width: 768px) {
-  .main-game-home__body {
-    padding-inline: 10px;
-  }
-}
-
 .wg-timer {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-}
-@media (min-width: 991.98px) {
-  .wg-timer {
-    position: static;
-    transform: translateX(0);
-  }
 }
 .wg-timer__wrapper {
   position: relative;
@@ -116,7 +98,7 @@
   -ms-user-select: none;
   user-select: none;
   font-family: "Nunito", sans-serif;
-  font-size: 14px;
+  font-weight: 600;
   color: var(--letter-bg-color);
 }
 
@@ -146,7 +128,7 @@
 }
 @media (max-width: 540px) {
   .wg-body {
-    padding: 58px 7px 33px;
+    padding: 58px 6px 33px;
   }
 }
 .wg-body__category-wrapper {
@@ -182,12 +164,13 @@
 @media (max-width: 768px) {
   .wg-body__category {
     font-size: 21px;
-    min-height: 40px;
+    min-height: 56px;
   }
 }
 @media (max-width: 540px) {
   .wg-body__category {
     min-width: 270px;
+    min-height: 40px;
     max-width: 90%;
   }
 }
@@ -202,7 +185,7 @@
 }
 @media (max-width: 768px) {
   .wg-body__word {
-    gap: 4px;
+    gap: calc(4px + 8 * (100vw - 360px) / 408);
   }
 }
 .wg-body__word .word-item {
@@ -228,8 +211,8 @@
 }
 @media (max-width: 768px) {
   .wg-body__word .word-item {
-    width: 52px;
-    font-size: 34px;
+    width: calc(52px + 18 * (100vw - 360px) / 408);
+    font-size: calc(32px + 6 * (100vw - 360px) / 408);
   }
 }
 .wg-body__word .word-item_space {
@@ -238,17 +221,28 @@
 }
 .wg-body__alphabet {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 13px 10px;
-  flex-wrap: wrap;
+  gap: 13px;
+  flex-direction: column;
 }
 @media (max-width: 768px) {
   .wg-body__alphabet {
-    gap: 11px 8px;
+    gap: 11px;
+    width: 100%;
   }
 }
-.wg-body__alphabet .letter-item {
+.wg-body__alphabet-line {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .wg-body__alphabet-line {
+    gap: 1%;
+    width: 100%;
+  }
+}
+.wg-body__alphabet-line .letter-item {
   width: 50px;
   height: 48px;
   border-radius: 12px;
@@ -257,7 +251,14 @@
   position: relative;
   transition: box-shadow 0.1s ease 0s, transform 0.1s ease 0s;
 }
-.wg-body__alphabet .letter-item__character {
+@media (max-width: 768px) {
+  .wg-body__alphabet-line .letter-item {
+    width: min(8.18%, 50px);
+    border-radius: calc(6px + 6 * (100vw - 360px) / 408);
+    height: calc(40px + 8 * (100vw - 360px) / 408);
+  }
+}
+.wg-body__alphabet-line .letter-item__character {
   text-transform: uppercase;
   font-family: "MullerBold", sans-serif;
   font-size: 25px;
@@ -281,33 +282,37 @@
   padding-top: 4px;
 }
 @media (max-width: 768px) {
-  .wg-body__alphabet .letter-item__character {
-    width: 46px;
-    font-size: 23px;
+  .wg-body__alphabet-line .letter-item__character {
+    font-size: calc(15px + 10 * (100vw - 360px) / 408);
+    width: 100%;
+    height: 100%;
+    right: 0;
+    aspect-ratio: auto;
+    border-radius: calc(6px + 6 * (100vw - 360px) / 408);
   }
 }
 @media (hover: hover) {
-  .wg-body__alphabet .letter-item:hover {
+  .wg-body__alphabet-line .letter-item:hover {
     box-shadow: rgba(255, 255, 255, 0.5) -2px -3px 15px 1px;
   }
 }
-.wg-body__alphabet .letter-item:active {
+.wg-body__alphabet-line .letter-item:active {
   transform: translateY(2px);
 }
-.wg-body__alphabet .letter-item.error {
+.wg-body__alphabet-line .letter-item.error {
   background-color: var(--letter-color-wrong);
   pointer-events: none;
 }
-.wg-body__alphabet .letter-item.error .letter-item__character {
+.wg-body__alphabet-line .letter-item.error .letter-item__character {
   background: linear-gradient(337deg, #f77373 0%, #ffb0b0 100%);
   border: 3px solid #c23d3d;
   color: var(--letter-color-wrong);
 }
-.wg-body__alphabet .letter-item.success {
+.wg-body__alphabet-line .letter-item.success {
   background-color: var(--letter-color-correct);
   pointer-events: none;
 }
-.wg-body__alphabet .letter-item.success .letter-item__character {
+.wg-body__alphabet-line .letter-item.success .letter-item__character {
   background: linear-gradient(337deg, #9cc91f 0%, #9bba47 100%);
   border: 3px solid #87a929;
   color: var(--letter-color-correct);
@@ -345,7 +350,8 @@
   font-family: "Mali";
   font-style: normal;
   font-weight: 300;
-  font-size: 1.3125rem;
-  line-height: 1.2857142857;
+  font-size: 20px;
+  line-height: 1.25;
   color: #ffffff;
+  margin: 0;
 }
